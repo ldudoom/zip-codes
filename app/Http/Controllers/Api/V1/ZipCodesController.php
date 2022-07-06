@@ -29,6 +29,6 @@ class ZipCodesController extends Controller
         }
         $loadData = $this->_loadedData->loadData(config('zipCodes.zip_codes_file'));
         $filteredData = $this->_filteredData->filterData($loadData, $zipCode);
-        return response()->json($this->_parsedData->fieldParsed($filteredData));
+        return response()->json($this->_parsedData->fieldParsed($filteredData), Response::HTTP_OK, ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
     }
 }
