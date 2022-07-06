@@ -7,8 +7,8 @@ class ParsingData implements \App\Interfaces\ParsingDataInterface
 
     public function fieldParsed(array $zipCodeDetail): array
     {
-        $zipCodeDetailDecoded = array_map('utf8_encode', $zipCodeDetail);
-        $zipCodeExploded = $this->_explodeZipCodeInfo($zipCodeDetailDecoded);
+        //$zipCodeDetailDecoded = array_map('utf8_encode', $zipCodeDetail);
+        $zipCodeExploded = $this->_explodeZipCodeInfo($zipCodeDetail);
         return $this->_parsingDataStructure($zipCodeExploded);
     }
 
