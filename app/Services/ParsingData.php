@@ -35,7 +35,7 @@ class ParsingData implements \App\Interfaces\ParsingDataInterface
                 'name' => strtoupper($zipCodes[1]),
                 'zone_type' => strtoupper($zipCodes[13]),
                 'settlement_type' => [
-                    'name' => strtoupper($zipCodes[2]),
+                    'name' => $zipCodes[2],
                 ]
             ];
             $aZipCodes['municipality'] = [
