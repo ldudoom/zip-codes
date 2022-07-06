@@ -3,20 +3,19 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
-use App\Services\DataFilter;
-use App\Services\DataLoad;
-use App\Services\ParsingData;
+use App\Interfaces\DataFilterInterface;
+use App\Interfaces\DataLoadInterface;
+use App\Interfaces\ParsingDataInterface;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class ZipCodesController extends Controller
 {
-    private DataLoad $_loadedData;
-    private DataFilter $_filteredData;
-    private ParsingData $_parsedData;
+    private DataLoadInterface $_loadedData;
+    private DataFilterInterface $_filteredData;
+    private ParsingDataInterface $_parsedData;
 
-    public function __construct(DataLoad $loadedData, DataFilter $filteredData, ParsingData $parsedData)
+    public function __construct(DataLoadInterface $loadedData, DataFilterInterface $filteredData, ParsingDataInterface $parsedData)
     {
         $this->_loadedData = $loadedData;
         $this->_filteredData = $filteredData;
