@@ -14,6 +14,7 @@
   + **app/Services/ParsingData.php:** Implementacion de la interface *ParsingDataInterface*
 
 ### DataLoad
+***
 En esta clase se encuentra implementado el método público ***"loadData"***.
 
 Recibe como parámetro el nombre del archivo txt del cual vamos a tomar la data.
@@ -21,6 +22,7 @@ Recibe como parámetro el nombre del archivo txt del cual vamos a tomar la data.
 Devuelve un *"array"* con la información de dicho archivo, siendo cada fila del mismo un elemento del array.
 
 ### DataFilter
+***
 En esta clase se encuentra implementado el método que buscará el zip code deseado.
 
 Recibe como parámetros, el **array** de datos obtenidos del archivo, y un **string** con el zip code a buscar.
@@ -28,6 +30,7 @@ Recibe como parámetros, el **array** de datos obtenidos del archivo, y un **str
 Devuelve un array con el o los registros encontrados de acuerdo al zip code buscado.
 
 ### ParsingData
+***
 En esta clase se encuentran implementados los métodos para el parsing de la información de zip codes.
 
 Está compuesta de 3 métodos:
@@ -37,6 +40,7 @@ Está compuesta de 3 métodos:
 - El método privado **_parsingDataStructure():** que será el encargado de formatear los datos de tal manera que tenga la misma estructura que el endpoint https://jobs.backbonesystems.io/api/zip-codes/{zip_code}
 
 ### ZipCodesController
+***
 Este será el archivo encargado de devolver la información en el endpoint.
 
 En su constructor se realiza la inversión de dependencias de los Servicios antes descritos.
@@ -44,8 +48,28 @@ En su constructor se realiza la inversión de dependencias de los Servicios ante
 Y cuenta con el método ***show()*** que será el encargado de devolver la información cuando se haga el request al endpoint.
 
 ### Endpoint
+***
 Se encuentra configurado el endpoint:
 ```
 /api/zip-codes/{zip_code}
 ```
 
+### Configuración
+***
+El archivo
+```
+zipCodes.txt
+```
+Deberá ser colocado dentro del directorio
+```
+/storage/app
+```
+
+Y se debe colocar la siguiente variable de entorno en el archivo .env
+
+#### .env
+```
+ZIP_CODES_FILE=zipCodes.txt
+```
+
+El valor de esta variable de entorno deberá ser el nombre del archivo txt ubicado en /storage/app donde están los zip codes
